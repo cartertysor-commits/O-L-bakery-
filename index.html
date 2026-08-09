@@ -373,7 +373,6 @@
 
         let currentUser = null;
 
-        // Authenticate user
         async function initAuth() {
             try {
                 if (auth) {
@@ -447,23 +446,28 @@
                             paymentMethod: payment,
                             createdAt: new Date().toISOString()
                         });
-                        console.log("Saved to Firestore successfully.");
                     } catch (dbErr) {
                         console.warn("Firestore save skipped/failed:", dbErr);
                     }
                 }
 
-                // 2. Send Email via EmailJS using your credentials
+                // 2. Prepare the combined message payload mapped to your EmailJS tags: {{name}}, {{time}}, {{message}}
+                const currentTime = new Date().toLocaleString();
+                const combinedDetails = `New Cookie Club Subscription!\n\n` +
+                                        `• Email: ${email}\n` +
+                                        `• Phone: ${phone}\n` +
+                                        `• Address: ${address}\n` +
+                                        `• Subscription Tier: ${tier}\n` +
+                                        `• Payment Method: ${payment}`;
+
                 const templateParams = {
-                    subscriber_name: name,
-                    subscriber_email: email,
-                    subscriber_phone: phone,
-                    subscriber_address: address,
-                    subscription_tier: tier,
-                    payment_method: payment
+                    name: name,
+                    time: currentTime,
+                    message: combinedDetails
                 };
 
-                console.log("Sending email via EmailJS...");
+                console.log("Sending email via EmailJS with params:", templateParams);
+                // Updated with your active service ID and template ID
                 await emailjs.send('service_0vffyrp', 'template_11gd65e', templateParams);
                 console.log("Email sent successfully!");
 
@@ -474,7 +478,6 @@
                 e.target.reset();
             } catch (err) {
                 console.error("Error processing subscription workflow:", err);
-                // Fallback modal so the user still gets confirmation even if something minor hiccups
                 window.showModal("You're Subscribed! 🍪", `Thanks ${name}! Your submission has been processed. Olivia & Lydia will review your details shortly!`, "✨");
                 e.target.reset();
             } finally {
@@ -494,6 +497,15 @@
                         createdAt: new Date().toISOString()
                     });
                 }
+
+                // Route newsletter signups into the same {{name}}, {{time}}, {{message}} template structure
+                const templateParams = {
+                    name: "Newsletter Subscriber",
+                    time: new Date().toLocaleString(),
+                    message: `New Newsletter Signup Email: ${email}`
+                };
+                await emailjs.send('service_0vffyrp', 'template_11gd65e', templateParams);
+
                 window.showModal("You're on the list! ✨", "Check your inbox soon for exclusive behind-the-scenes treats and flavor previews!", "🥳");
                 e.target.reset();
             } catch (err) {
@@ -507,17 +519,26 @@
             e.preventDefault();
             const name = document.getElementById('contactName').value;
             const email = document.getElementById('contactEmail').value;
-            const message = document.getElementById('contactMsg').value;
+            const messageText = document.getElementById('contactMsg').value;
 
             try {
                 if (db && currentUser) {
                     await addDoc(collection(db, 'artifacts', appId, 'public', 'data', 'messages'), {
                         name: name,
                         email: email,
-                        message: message,
+                        message: messageText,
                         createdAt: new Date().toISOString()
                     });
                 }
+
+                // Route contact messages into the {{name}}, {{time}}, {{message}} template structure
+                const templateParams = {
+                    name: name,
+                    time: new Date().toLocaleString(),
+                    message: `Contact Form Message:\n\nEmail: ${email}\n\nMessage:\n${messageText}`
+                };
+                await emailjs.send('service_0vffyrp', 'template_11gd65e', templateParams);
+
                 window.showModal("Message Sent! 📮", "Thanks for reaching out! Olivia or Lydia will get back to you as soon as they finish their homework.", "💬");
                 e.target.reset();
             } catch (err) {
