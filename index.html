@@ -6,12 +6,11 @@
     <title>O & L Bakery | Weekly Cookie Subscription</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=DynaPuff:wght@500;700&display=swap" rel="stylesheet">
-    <!-- EmailJS SDK -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Initialize EmailJS with your public key (replace with your actual key if needed)
-            emailjs.init("YOUR_PUBLIC_KEY");
+            // Initialized with your public key
+            emailjs.init("Aat6eu_5Jz7j3Od7w");
         })();
     </script>
     <script>
@@ -54,12 +53,10 @@
 </head>
 <body class="bg-cookie-50 text-neutral-800 font-sans selection:bg-blush-200 selection:text-blush-500">
 
-    <!-- Notification Banner -->
     <div class="bg-blush-400 text-white text-center py-2 px-4 text-sm font-semibold tracking-wide">
         ✨ Regular $20/mo | Gluten-Friendly $25/mo for weekly gourmet cookie drops! ✨
     </div>
 
-    <!-- Navigation -->
     <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-cookie-200">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="#" class="font-fun text-2xl text-cookie-500 font-bold tracking-tight">O & L Bakery 🍪</a>
@@ -75,7 +72,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <header class="relative overflow-hidden bg-gradient-to-b from-cookie-100 to-cookie-50 py-16 md:py-24">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
             <div class="space-y-6 text-center md:text-left">
@@ -113,7 +109,6 @@
         </div>
     </header>
 
-    <!-- Product / Flavors Section -->
     <section id="menu" class="py-20 bg-cookie-50">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-4 mb-16">
@@ -122,7 +117,6 @@
             </div>
             
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Card 1 -->
                 <div class="bg-white rounded-3xl p-5 shadow-md hover:shadow-xl transition border border-cookie-200 flex flex-col justify-between">
                     <div>
                         <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
@@ -138,7 +132,6 @@
                     </div>
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-white rounded-3xl p-5 shadow-md hover:shadow-xl transition border border-cookie-200 flex flex-col justify-between">
                     <div>
                         <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
@@ -154,7 +147,6 @@
                     </div>
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-white rounded-3xl p-5 shadow-md hover:shadow-xl transition border border-cookie-200 flex flex-col justify-between">
                     <div>
                         <div class="relative overflow-hidden rounded-2xl mb-4 aspect-square">
@@ -173,7 +165,6 @@
         </div>
     </section>
 
-    <!-- Information Section -->
     <section id="info" class="py-20 bg-white border-t border-cookie-100">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-4 mb-12">
@@ -222,12 +213,10 @@
         </div>
     </section>
 
-    <!-- Subscription & Sign-Up Page Section -->
     <section id="subscribe" class="py-20 bg-gradient-to-t from-cookie-100 to-cookie-50">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="bg-white rounded-3xl shadow-xl overflow-hidden border-2 border-cookie-200 grid md:grid-cols-5">
                 
-                <!-- Info Column -->
                 <div class="md:col-span-2 bg-cookie-500 p-8 text-white flex flex-col justify-between">
                     <div class="space-y-4">
                         <span class="bg-blush-400 text-white font-fun text-xs px-3 py-1 rounded-full uppercase tracking-widest font-bold">Best Deal</span>
@@ -252,7 +241,6 @@
                     </div>
                 </div>
 
-                <!-- Form Column -->
                 <form id="paymentForm" onsubmit="handleSubscribe(event)" class="md:col-span-3 p-8 space-y-4">
                     <h3 class="font-fun text-2xl text-cookie-600 mb-2">Secure Your Spot 🍪</h3>
                     <p class="text-xs text-neutral-500 mb-4">Fill out your details below to start your monthly cookie membership.</p>
@@ -305,7 +293,6 @@
         </div>
     </section>
 
-    <!-- Newsletter Section -->
     <section class="py-16 bg-white border-t border-cookie-100">
         <div class="max-w-2xl mx-auto px-4 text-center space-y-4">
             <span class="bg-cookie-100 text-cookie-600 font-fun text-xs px-3 py-1 rounded-full uppercase tracking-wider">Stay In The Loop</span>
@@ -321,7 +308,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="py-20 bg-cookie-50 border-t border-cookie-200">
         <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center space-y-3 mb-10">
@@ -351,14 +337,12 @@
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="bg-cookie-600 text-white py-12 text-center space-y-4">
         <div class="font-fun text-2xl">O & L Bakery 🍪</div>
         <p class="text-cookie-200 text-sm">Made with burnt sugar, lots of laughs, and endless teenage spirit.</p>
         <p class="text-xs text-cookie-300 pt-4">&copy; 2026 O & L Bakery. All rights reserved.</p>
     </footer>
 
-    <!-- Custom Modal for Notifications -->
     <div id="modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="bg-white rounded-3xl p-6 max-w-sm w-full text-center space-y-4 shadow-2xl transform transition-all">
             <div id="modalIcon" class="text-4xl">🎉</div>
@@ -370,7 +354,6 @@
         </div>
     </div>
 
-    <!-- Firebase & EmailJS Integration Script -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -457,10 +440,8 @@
                     createdAt: new Date().toISOString()
                 });
 
-                // 2. Send Email via EmailJS to oliviatysor@gmail.com and Thetysors@gmail.com
+                // 2. Send Email via EmailJS with your active Service ID and Template ID
                 const templateParams = {
-                    to_email_1: "oliviatysor@gmail.com",
-                    to_email_2: "Thetysors@gmail.com",
                     subscriber_name: name,
                     subscriber_email: email,
                     subscriber_phone: phone,
@@ -469,8 +450,7 @@
                     payment_method: payment
                 };
 
-                // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your EmailJS credentials
-                await emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams);
+                await emailjs.send('service_0vffyrp', 'template_11gd65e', templateParams);
 
                 let amountText = tier.includes('25') ? "$25" : "$20";
                 let paymentText = payment === 'Venmo' ? `Please send ${amountText} via Venmo to @OL-Bakery to complete your setup!` : `You selected Cash on delivery (${amountText}) for your first box!`;
@@ -479,7 +459,7 @@
                 e.target.reset();
             } catch (err) {
                 console.error("Error processing subscription:", err);
-                window.showModal("Notice", "Your subscription was saved successfully!", "✨");
+                window.showModal("Notice", "Your subscription was saved successfully, but there was an issue sending the email notification.", "✨");
                 e.target.reset();
             } finally {
                 subBtn.disabled = false;
